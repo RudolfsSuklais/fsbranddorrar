@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./ProductsSection.css";
 import image1 from "../assets/PE78EI_Design-Line_EI30-1-1.webp";
+import image2 from "../assets/PE78EI_Design-Line_EI60-1-2.webp";
+import image3 from "../assets/PE78EI_eco_EI30-1-1.webp";
+import image4 from "../assets/PE78EI_Design-Line_EI90-1-1.webp";
+import image5 from "../assets/PE78EI_Design-Line_EI120-1-1.webp";
+import image6 from "../assets/PE78EI_kl_EI30-2.webp";
+import image7 from "../assets/ponzio-pe78ei-kl-ei60-1-1-1.webp";
+import image8 from "../assets/PE78EI_kl_EI90-1-1.webp";
+import image9 from "../assets/PE78EI_okno_RU_kl_EI30-1-1.webp";
+import image10 from "../assets/PE78EI_scianki_bezszprosowe_kl_EI30-1-1.webp";
+import image11 from "../assets/PE78EI_scianki_bezszprosowe_kl_EI60-1-1.webp";
+import image12 from "../assets/PF152EI_kl_EI30-1-1.webp";
+import image13 from "../assets/PF152EI_kl_EI60-1-1.webp";
+import image14 from "../assets/PF152EI_kl_EI60-1-1.webp";
 
 const ProductsSection = () => {
     const [activeTab, setActiveTab] = useState("aluminium");
@@ -10,7 +23,7 @@ const ProductsSection = () => {
         aluminium: [
             {
                 id: 1,
-                title: "PE78EI DESIGN LINE ",
+                title: "PE78EI DESIGN LINE",
                 description: "Branddörrar klass EI30",
                 image: image1,
                 features: [
@@ -22,8 +35,9 @@ const ProductsSection = () => {
             },
             {
                 id: 2,
-                title: "Linear Minimalist",
-                description: "Floor-to-ceiling aluminium door systems",
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI60",
+                image: image2,
                 features: [
                     "Hidden hinges",
                     "Integrated smart lock",
@@ -33,8 +47,141 @@ const ProductsSection = () => {
             },
             {
                 id: 3,
-                title: "Heritage Flush",
-                description: "Traditional design with modern performance",
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI30 ekonomivariant",
+                image: image3,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 4,
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI90",
+                image: image4,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 5,
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI120",
+                image: image5,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 6,
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI30",
+                image: image6,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 7,
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI60",
+                image: image7,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 8,
+                title: "PE78EI DESIGN LINE",
+                description: "Branddörrar klass EI90",
+                image: image8,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 9,
+                title: "PE78EI",
+                description: "klass EI30-TT fönster",
+                image: image9,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 10,
+                title: "PE78EI",
+                description: "klass EI30 glasad skiljevägg med stötfog",
+                image: image10,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 11,
+                title: "PE78EI",
+                description: "klass EI60 glasad skiljevägg med stötfog",
+                image: image11,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 12,
+                title: "PF152EI ",
+                description: "klass EI30",
+                image: image12,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 13,
+                title: "PF152EI ",
+                description: "klass EI60",
+                image: image13,
+                features: [
+                    "Handcrafted details",
+                    "Antique patina options",
+                    "Historic compliance",
+                ],
+            },
+
+            {
+                id: 14,
+                title: "PF152EI ",
+                description: "klass EI60",
+                image: image14,
                 features: [
                     "Handcrafted details",
                     "Antique patina options",
