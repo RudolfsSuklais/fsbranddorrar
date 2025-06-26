@@ -6,7 +6,7 @@ import "./Gallery.css";
 import alicante_1 from "../assets/alicante/alicante-spain-1.jpg";
 import ventspils_1 from "../assets/ventspils/ventspils-3.jpg";
 import graalen_1 from "../assets/graalen/graalen-3.jpg";
-import dsv_1 from "../assets/dsv-1.jpg";
+import dsv_1 from "../assets/DSV-1.jpg";
 import arte_1 from "../assets/arte-1.jpg";
 import tukums_1 from "../assets/tukums-1.jpg";
 import liepaja_1 from "../assets/liepaja-1.jpg";
