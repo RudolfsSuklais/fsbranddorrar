@@ -45,7 +45,7 @@ const Navbar = () => {
                                 href="/"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
-                                Hem
+                                HemSSSS
                             </a>
                         </li>
                         <li>
