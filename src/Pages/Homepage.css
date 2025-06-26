@@ -17,6 +17,18 @@
     height: 100%;
     background: url("../assets/heroBackground.jpg") center/cover no-repeat;
     z-index: -1;
+    animation: slowPan 8s infinite alternate ease-in-out;
+    transform-origin: center;
+    will-change: transform;
+}
+
+@keyframes slowPan {
+    0% {
+        transform: scale(1) translateX(0) translateY(0);
+    }
+    100% {
+        transform: scale(1.05) translateX(2%) translateY(2%);
+    }
 }
 
 .hp-hero__background-overlay {

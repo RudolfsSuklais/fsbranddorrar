@@ -115,6 +115,10 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+.hp-products__grid a {
+    text-decoration: none;
+}
+
 .hp-products__card-badge {
     position: absolute;
     top: 1.5rem;

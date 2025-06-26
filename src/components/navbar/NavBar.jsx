@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./NavBar.css";
 import Logo from "../../assets/fsbranddorrar_logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navbar = () => {
     return (
         <nav className={`hp-navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="hp-navbar-container">
-                <a href="#" className="hp-logo">
+                <a href="/" className="hp-logo">
                     <img src={Logo} alt="FS Branddörrar Logo" />
                 </a>
 
@@ -41,7 +42,7 @@ const Navbar = () => {
                     <ul className="hp-nav-links">
                         <li>
                             <a
-                                href="#"
+                                href="/"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
                                 Hem
@@ -49,7 +50,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/produkter"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
                                 Produkter
@@ -57,7 +58,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/galleri"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
                                 Galleri
@@ -65,7 +66,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/om-oss"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
                                 Om Oss
@@ -73,14 +74,14 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/kontakt"
                                 className="hp-nav-link"
                                 onClick={toggleMenu}>
                                 Kontakt
                             </a>
                         </li>
                     </ul>
-                    <button className="hp-cta-button">
+                    <a className="hp-cta-button" href="/kontakt">
                         Boka Konsultation
                         <svg
                             width="16"
@@ -92,7 +93,7 @@ const Navbar = () => {
                                 fill="currentColor"
                             />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </nav>

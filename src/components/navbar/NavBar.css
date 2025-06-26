@@ -233,3 +233,7 @@
         height: 35px;
     }
 }
+
+.hp-navbar-container a {
+    text-decoration: none;
+}

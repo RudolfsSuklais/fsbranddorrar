@@ -1,0 +1,397 @@
+/* Kontaktsida - Mörkt tema med grå färger */
+.hp-contact {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    color: #e0e0e0;
+    background-color: #121212;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-top: 5rem;
+}
+
+/* Animerad bakgrund */
+.hp-contact-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hp-contact-bg-circle {
+    position: absolute;
+    background: rgba(160, 160, 160, 0.1);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+/* Hero-sektion */
+.hp-contact-hero {
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+        ),
+        url("/contact-hero-bg.jpg") center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.hp-contact-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(160, 160, 160, 0.1) 0%,
+        transparent 70%
+    );
+    animation: pulse 15s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+.hp-contact-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.hp-contact-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.hp-contact-title-line {
+    display: block;
+    position: relative;
+}
+
+.hp-contact-title-line:first-child::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: #a0a0a0;
+    border-radius: 2px;
+}
+
+.hp-contact-subtitle {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(224, 224, 224, 0.8);
+    line-height: 1.6;
+}
+
+/* Container */
+.hp-contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Kontaktinformation */
+.hp-contact-info-section {
+    margin-bottom: 4rem;
+}
+
+.hp-contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.hp-contact-method-card {
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.hp-contact-method-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(160, 160, 160, 0.1) 0%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.hp-contact-method-card:hover::before {
+    opacity: 1;
+}
+
+.hp-contact-method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(160, 160, 160, 0.3);
+}
+
+.hp-contact-method-icon {
+    margin-bottom: 1.5rem;
+    color: #a0a0a0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hp-contact-method-card:hover .hp-contact-method-icon {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+.hp-contact-method-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.hp-contact-method-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(224, 224, 224, 0.7);
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.hp-contact-method-info:hover {
+    color: #ffffff;
+}
+
+/* Kontaktformulär */
+.hp-contact-form-section {
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 16px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hp-contact-form-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.hp-contact-form-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #a0a0a0;
+    border-radius: 3px;
+}
+
+.hp-form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.hp-form-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hp-form-input:focus {
+    outline: none;
+    border-color: rgba(160, 160, 160, 0.5);
+    box-shadow: 0 0 0 2px rgba(160, 160, 160, 0.2);
+}
+
+.hp-form-input:not(:placeholder-shown) + .hp-form-label,
+.hp-form-input:focus + .hp-form-label {
+    transform: translateY(-1.5rem) scale(0.85);
+    background-color: #121212;
+    padding: 0 0.5rem;
+    color: #a0a0a0;
+}
+
+.hp-form-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: rgba(224, 224, 224, 0.7);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.hp-form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.hp-form-submit-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.hp-form-submit-btn {
+    background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hp-form-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hp-form-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.hp-form-submit-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.hp-form-submit-btn:hover:not(:disabled) svg {
+    transform: translateX(5px);
+}
+
+.hp-form-status {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.hp-form-status.success {
+    background-color: rgba(46, 125, 50, 0.2);
+    border: 1px solid rgba(46, 125, 50, 0.5);
+    color: #81c784;
+}
+
+.hp-form-status.error {
+    background-color: rgba(211, 47, 47, 0.2);
+    border: 1px solid rgba(211, 47, 47, 0.5);
+    color: #e57373;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .hp-contact-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .hp-contact-form-section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hp-contact-hero {
+        height: 35vh;
+        min-height: 250px;
+    }
+
+    .hp-contact-title {
+        font-size: 2.5rem;
+    }
+
+    .hp-contact-subtitle {
+        font-size: 1rem;
+    }
+
+    .hp-contact-form-section {
+        padding: 1.5rem;
+    }
+
+    .hp-contact-form-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Add to Contact.css */
+.hp-form-status {
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.hp-form-status.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.hp-form-status.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.hp-form-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
