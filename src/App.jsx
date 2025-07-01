@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer.jsx";
 import Gallery from "./Pages/Gallery.jsx";
 import About from "./Pages/About.jsx";
 import Contact from "./Pages/Contact.jsx";
+import NotFound from "./Pages/NotFound.jsx";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/galleri" element={<Gallery />} />
                     <Route path="/om-oss" element={<About />} />
                     <Route path="/kontakt" element={<Contact />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />
             </Router>

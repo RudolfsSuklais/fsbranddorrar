@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import "./NavBar.css";
 import Logo from "../../assets/fsbranddorrar_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,12 +20,17 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    // Helper function to check if a path is active
+    const isActive = (path) => {
+        return location.pathname === path;
+    };
+
     return (
         <nav className={`hp-navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="hp-navbar-container">
-                <a href="/" className="hp-logo">
+                <Link to="/" className="hp-logo">
                     <img src={Logo} alt="FS Branddörrar Logo" />
-                </a>
+                </Link>
 
                 <div
                     className={`hp-hamburger ${isMenuOpen ? "open" : ""}`}
@@ -41,47 +47,57 @@ const Navbar = () => {
                     }`}>
                     <ul className="hp-nav-links">
                         <li>
-                            <a
-                                href="/"
-                                className="hp-nav-link"
+                            <Link
+                                to="/"
+                                className={`hp-nav-link ${
+                                    isActive("/") ? "active" : ""
+                                }`}
                                 onClick={toggleMenu}>
-                                HemSSSS
-                            </a>
+                                Hem
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                href="/produkter"
-                                className="hp-nav-link"
+                            <Link
+                                to="/produkter"
+                                className={`hp-nav-link ${
+                                    isActive("/produkter") ? "active" : ""
+                                }`}
                                 onClick={toggleMenu}>
                                 Produkter
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                href="/galleri"
-                                className="hp-nav-link"
+                            <Link
+                                to="/galleri"
+                                className={`hp-nav-link ${
+                                    isActive("/galleri") ? "active" : ""
+                                }`}
                                 onClick={toggleMenu}>
                                 Galleri
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                href="/om-oss"
-                                className="hp-nav-link"
+                            <Link
+                                to="/om-oss"
+                                className={`hp-nav-link ${
+                                    isActive("/om-oss") ? "active" : ""
+                                }`}
                                 onClick={toggleMenu}>
                                 Om Oss
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                href="/kontakt"
-                                className="hp-nav-link"
+                            <Link
+                                to="/kontakt"
+                                className={`hp-nav-link ${
+                                    isActive("/kontakt") ? "active" : ""
+                                }`}
                                 onClick={toggleMenu}>
                                 Kontakt
-                            </a>
+                            </Link>
                         </li>
                     </ul>
-                    <a className="hp-cta-button" href="/kontakt">
+                    <Link className="hp-cta-button" to="/kontakt">
                         Boka Konsultation
                         <svg
                             width="16"
@@ -93,7 +109,7 @@ const Navbar = () => {
                                 fill="currentColor"
                             />
                         </svg>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import "./ProductDetailPage.css";
 
@@ -2541,31 +2541,33 @@ const ProductDetailPage = () => {
                     <motion.div
                         className="product-detail__cta"
                         variants={itemVariants}>
-                        <motion.button
-                            className="product-detail__contact-btn"
-                            variants={buttonHoverVariants}
-                            whileHover="hover"
-                            whileTap="tap">
-                            Kontakta oss för offert
-                            <motion.svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                animate={{
-                                    x: [0, 5, 0],
-                                }}
-                                transition={{
-                                    repeat: Infinity,
-                                    duration: 1.5,
-                                    ease: "easeInOut",
-                                }}>
-                                <path
-                                    d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
-                                    fill="currentColor"
-                                />
-                            </motion.svg>
-                        </motion.button>
+                        <Link to="/kontakt">
+                            <motion.button
+                                className="product-detail__contact-btn"
+                                variants={buttonHoverVariants}
+                                whileHover="hover"
+                                whileTap="tap">
+                                Kontakta oss för offert
+                                <motion.svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    animate={{
+                                        x: [0, 5, 0],
+                                    }}
+                                    transition={{
+                                        repeat: Infinity,
+                                        duration: 1.5,
+                                        ease: "easeInOut",
+                                    }}>
+                                    <path
+                                        d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
+                                        fill="currentColor"
+                                    />
+                                </motion.svg>
+                            </motion.button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

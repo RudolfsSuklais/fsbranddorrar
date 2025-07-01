@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import {
     FaPhone,
     FaEnvelope,
@@ -20,9 +21,16 @@ const Contact = () => {
     const [submitStatus, setSubmitStatus] = useState(null);
     const formRef = useRef(null);
 
-    // Initialize EmailJS (you should do this once when your app loads)
+    // Initialize EmailJS
     useEffect(() => {
         emailjs.init("9KjtOhPPSSwigiOqj"); // Replace with your EmailJS public key
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     }, []);
 
     const handleChange = (e) => {
@@ -39,7 +47,6 @@ const Contact = () => {
         setSubmitStatus(null);
 
         try {
-            // Send form data using EmailJS
             const response = await emailjs.sendForm(
                 "service_m7yjpzd", // Replace with your EmailJS service ID
                 "template_oafnse6", // Replace with your EmailJS template ID
@@ -99,6 +106,84 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}>
+            {/* SEO Meta Tags */}
+            <Helmet>
+                <title>
+                    Kontakta Finestra Solution | Specialister på brandsäkra
+                    dörrar och fönster
+                </title>
+                <meta
+                    name="description"
+                    content="Kontakta oss för frågor om brandsäkra lösningar, aluminiumkonstruktioner eller för att boka ett möte. Vi finns i Solna och svarar snabbt på alla förfrågningar."
+                />
+                <meta
+                    name="keywords"
+                    content="kontakt Finestra Solution, brandsäkra dörrar, fönsterproduktion, aluminiumkonstruktioner, Solna, kontaktformulär"
+                />
+                <meta
+                    property="og:title"
+                    content="Kontakta Finestra Solution | Specialister på brandsäkra dörrar och fönster"
+                />
+                <meta
+                    property="og:description"
+                    content="Kontakta oss för frågor om brandsäkra lösningar eller för att boka ett möte. Vi finns i Solna och svarar snabbt på alla förfrågningar."
+                />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:url"
+                    content="https://www.fsbranddorrar.se/kontakt"
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.fsbranddorrar.se/images/og-contact-image.jpg"
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Kontakta Finestra Solution | Specialister på brandsäkra dörrar och fönster"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Kontakta oss för frågor om brandsäkra lösningar eller för att boka ett möte. Vi finns i Solna och svarar snabbt."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://www.fsbranddorrar.se/images/twitter-contact-image.jpg"
+                />
+                <link
+                    rel="canonical"
+                    href="https://www.fsbranddorrar.se/kontakt"
+                />
+
+                {/* Structured Data for Local Business */}
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Finestra Solution",
+                        "image": "https://www.fsbranddorrar.se/images/logo.jpg",
+                        "telephone": "+46123456789",
+                        "email": "info@fsbranddorrar.se",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "GUSTAV III:S BOULEVARD 34",
+                            "addressLocality": "Solna",
+                            "postalCode": "169 73",
+                            "addressCountry": "SE"
+                        },
+                        "url": "https://www.fsbranddorrar.se",
+                        "openingHours": "Mo-Fr 08:00-17:00",
+                        "priceRange": "$$",
+                        "sameAs": [
+                            "https://www.facebook.com/finestrasolution",
+                            "https://www.linkedin.com/company/finestrasolution"
+                        ]
+                    }
+                    `}
+                </script>
+            </Helmet>
+
             {/* Background elements */}
             <div className="hp-contact-background">
                 {[...Array(20)].map((_, i) => (

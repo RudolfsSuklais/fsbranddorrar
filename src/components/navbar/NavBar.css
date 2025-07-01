@@ -237,3 +237,22 @@
 .hp-navbar-container a {
     text-decoration: none;
 }
+
+/* Active link styles */
+.hp-nav-link.active {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.hp-nav-link.active::after {
+    transform: scaleX(1) !important;
+    background: #fff !important;
+}
+
+/* If you want a different style for mobile */
+@media (max-width: 992px) {
+    .hp-nav-link.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+}

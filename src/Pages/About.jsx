@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import {
     FaPlay,
     FaBuilding,
@@ -6,7 +7,7 @@ import {
     FaShieldAlt,
     FaLightbulb,
 } from "react-icons/fa";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./About.css";
 
 const About = () => {
@@ -55,6 +56,12 @@ const About = () => {
     const handlePlayVideo = () => {
         setVideoLoaded(true);
     };
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, []);
 
     return (
         <motion.div
@@ -62,6 +69,56 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}>
+            {/* SEO Meta Tags */}
+            <Helmet>
+                <title>
+                    Om Finestra Solution | Modern Produktion av
+                    Aluminiumkonstruktioner
+                </title>
+                <meta
+                    name="description"
+                    content="Finestra Solution erbjuder skräddarsydda aluminium- och stålkonstruktioner, moderna produktionsanläggningar i Solna, och certifierade brandsäkra lösningar."
+                />
+                <meta
+                    name="keywords"
+                    content="aluminiumkonstruktioner, stålkonstruktioner, fönsterproduktion, dörrproduktion, fasadlösningar, brandsäkra konstruktioner, Solna, Finestra Solution"
+                />
+                <meta
+                    property="og:title"
+                    content="Om Finestra Solution | Modern Produktion av Aluminiumkonstruktioner"
+                />
+                <meta
+                    property="og:description"
+                    content="Specialister på aluminium- och stålkonstruktioner med moderna produktionsanläggningar i Solna."
+                />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:url"
+                    content="https://www.fsbranddorrar.se/om-oss"
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.fsbranddorrar.se/images/og-about-image.jpg"
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Om Finestra Solution | Modern Produktion av Aluminiumkonstruktioner"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Specialister på aluminium- och stålkonstruktioner med moderna produktionsanläggningar i Solna."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://www.fsbranddorrar.se/images/twitter-about-image.jpg"
+                />
+                <link
+                    rel="canonical"
+                    href="https://www.fsbranddorrar.se/om-oss"
+                />
+            </Helmet>
+
             {/* Background elements - purely visual */}
             <div className="hp-about-background">
                 {[...Array(20)].map((_, i) => (
@@ -192,9 +249,8 @@ const About = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.8 }}>
                         <h2 className="hp-about-section-title">
-                            AB ”FINESTRA SOLUTION” har sina
-                            produktionsanläggningar i GUSTAV III:S BOULEVARD 34,
-                            169 73 Solna.
+                            ”FINESTRA SOLUTION” har sina produktionsanläggningar
+                            i GUSTAV III:S BOULEVARD 34, 169 73 Solna.
                         </h2>
                         <p className="hp-about-section-text">
                             Alla aluminiumkonstruktioner förbereds för

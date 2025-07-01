@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./ProductsSection.css";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import "./ProductsSection.css";
 
+// Product Images - Aluminium
 import image1 from "../assets/PE78EI_Design-Line_EI30-1-1.webp";
 import image2 from "../assets/PE78EI_Design-Line_EI60-1-2.webp";
 import image3 from "../assets/PE78EI_eco_EI30-1-1.webp";
@@ -20,6 +22,7 @@ import image14 from "../assets/dach_przeszklony_REI30_RE45-2-1.webp";
 import image15 from "../assets/Ponzio_PF152ESG_EI30_2k_2023-2-1.webp";
 import image16 from "../assets/PF152EI60_ESG_2k_2023-1-1.webp";
 
+// Product Images - Steel
 import i1 from "../assets/csm_Janisol-2-Tuer-Jansen_3495070f94-3.webp";
 import i2 from "../assets/csm_Janisol-2-Fingerschutztuere-Jansen_fad3f8353a-1-2.webp";
 import i3 from "../assets/csm_Jansen-Economy-50-E30-Jansen_f6a1e976f6-2.webp";
@@ -350,6 +353,7 @@ const ProductsSection = () => {
         ],
     };
 
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -373,129 +377,193 @@ const ProductsSection = () => {
         },
     };
 
+    // SEO Meta Data
+    const materialType = activeTab === "aluminium" ? "Aluminium" : "Stål";
+    const productCount = products[activeTab].length;
+    const seoTitle = `Brandskyddsprodukter i ${materialType} | Professionella Lösningar`;
+    const seoDescription = `Upptäck vårt sortiment av ${productCount} brandsäkra ${materialType.toLowerCase()}-produkter med EI30 till EI120 klassning.`;
+    const canonicalUrl = `https://example.com/produkter/${activeTab}`;
+
     return (
-        <section className="hp-products">
-            <div className="hp-products__container">
-                <div className="hp-products__header">
-                    <motion.h2
-                        className="hp-products__title"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true, margin: "-100px" }}>
-                        VÅRA PRODUKTER
-                    </motion.h2>
+        <>
+            <Helmet>
+                <title>{seoTitle}</title>
+                <meta name="description" content={seoDescription} />
+                <link rel="canonical" href={canonicalUrl} />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:title" content={seoTitle} />
+                <meta property="og:description" content={seoDescription} />
+                <meta
+                    property="og:image"
+                    content="https://example.com/images/brandskydd-social.jpg"
+                />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={seoTitle} />
+                <meta name="twitter:description" content={seoDescription} />
+                <meta
+                    name="twitter:image"
+                    content="https://example.com/images/brandskydd-twitter.jpg"
+                />
+
+                {/* Schema.org markup */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        name: `Brandskyddsprodukter i ${materialType}`,
+                        description: seoDescription,
+                        url: canonicalUrl,
+                        numberOfItems: productCount,
+                        itemListElement: products[activeTab].map(
+                            (product, index) => ({
+                                "@type": "ListItem",
+                                position: index + 1,
+                                item: {
+                                    "@type": "Product",
+                                    name: `${product.title} ${product.description}`,
+                                    description: product.features.join(", "),
+                                    image: product.image,
+                                    url: `${canonicalUrl}/${product.id}`,
+                                },
+                            })
+                        ),
+                    })}
+                </script>
+            </Helmet>
+
+            <section className="hp-products">
+                <div className="hp-products__container">
+                    <div className="hp-products__header">
+                        <motion.h2
+                            className="hp-products__title"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true, margin: "-100px" }}>
+                            VÅRA PRODUKTER
+                        </motion.h2>
+
+                        <motion.div
+                            className="hp-products__tabs"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                            viewport={{ once: true }}>
+                            <button
+                                className={`hp-products__tab ${
+                                    activeTab === "aluminium" ? "active" : ""
+                                }`}
+                                onClick={() => setActiveTab("aluminium")}>
+                                <span>ALUMINIUM</span>
+                                {activeTab === "aluminium" && (
+                                    <motion.div
+                                        className="hp-products__tab-indicator"
+                                        layoutId="tab-indicator"
+                                    />
+                                )}
+                            </button>
+                            <button
+                                className={`hp-products__tab ${
+                                    activeTab === "steel" ? "active" : ""
+                                }`}
+                                onClick={() => setActiveTab("steel")}>
+                                <span>STÅL</span>
+                                {activeTab === "steel" && (
+                                    <motion.div
+                                        className="hp-products__tab-indicator"
+                                        layoutId="tab-indicator"
+                                    />
+                                )}
+                            </button>
+                        </motion.div>
+                    </div>
 
                     <motion.div
-                        className="hp-products__tabs"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
-                        viewport={{ once: true }}>
-                        <button
-                            className={`hp-products__tab ${
-                                activeTab === "aluminium" ? "active" : ""
-                            }`}
-                            onClick={() => setActiveTab("aluminium")}>
-                            <span>ALUMINIUM</span>
-                            {activeTab === "aluminium" && (
-                                <motion.div
-                                    className="hp-products__tab-indicator"
-                                    layoutId="tab-indicator"
-                                />
-                            )}
-                        </button>
-                        <button
-                            className={`hp-products__tab ${
-                                activeTab === "steel" ? "active" : ""
-                            }`}
-                            onClick={() => setActiveTab("steel")}>
-                            <span>STÅL</span>
-                            {activeTab === "steel" && (
-                                <motion.div
-                                    className="hp-products__tab-indicator"
-                                    layoutId="tab-indicator"
-                                />
-                            )}
-                        </button>
+                        className="hp-products__grid"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}>
+                        {products[activeTab].map((product) => (
+                            <motion.div
+                                key={product.id}
+                                className="hp-products__card"
+                                variants={itemVariants}
+                                whileHover={{ y: -10 }}>
+                                {product.badge && (
+                                    <div className="hp-products__card-badge">
+                                        {product.badge}
+                                    </div>
+                                )}
+                                <div className="hp-products__card-image">
+                                    <img
+                                        src={product.image}
+                                        alt={`${product.title} - ${product.description}`}
+                                        loading="lazy"
+                                        width="400"
+                                        height="300"
+                                    />
+                                    <div className="hp-products__card-overlay"></div>
+                                </div>
+                                <div className="hp-products__card-content">
+                                    <h3 className="hp-products__card-title">
+                                        {product.title}
+                                    </h3>
+                                    <p className="hp-products__card-description">
+                                        {product.description}
+                                    </p>
+                                    <ul className="hp-products__card-features">
+                                        {product.features.map(
+                                            (feature, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="hp-products__card-feature">
+                                                    <svg
+                                                        width="16"
+                                                        height="16"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none">
+                                                        <path
+                                                            d="M20 6L9 17L4 12"
+                                                            stroke="currentColor"
+                                                            strokeWidth="2"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        />
+                                                    </svg>
+                                                    {feature}
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                    <Link
+                                        to={`/produkter/${activeTab}/${product.id}`}
+                                        className="hp-products__card-button"
+                                        aria-label={`Läs mer om ${product.title} ${product.description}`}>
+                                        Se produktdetaljer
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path
+                                                d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                    </Link>
+                                </div>
+                            </motion.div>
+                        ))}
                     </motion.div>
                 </div>
-
-                <motion.div
-                    className="hp-products__grid"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}>
-                    {products[activeTab].map((product) => (
-                        <motion.div
-                            key={product.id}
-                            className="hp-products__card"
-                            variants={itemVariants}
-                            whileHover={{ y: -10 }}>
-                            {product.badge && (
-                                <div className="hp-products__card-badge">
-                                    {product.badge}
-                                </div>
-                            )}
-                            <div className="hp-products__card-image">
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    loading="lazy"
-                                />
-                                <div className="hp-products__card-overlay"></div>
-                            </div>
-                            <div className="hp-products__card-content">
-                                <h3 className="hp-products__card-title">
-                                    {product.title}
-                                </h3>
-                                <p className="hp-products__card-description">
-                                    {product.description}
-                                </p>
-                                <ul className="hp-products__card-features">
-                                    {product.features.map((feature, index) => (
-                                        <li
-                                            key={index}
-                                            className="hp-products__card-feature">
-                                            <svg
-                                                width="16"
-                                                height="16"
-                                                viewBox="0 0 24 24"
-                                                fill="none">
-                                                <path
-                                                    d="M20 6L9 17L4 12"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    to={`/produkter/${activeTab}/${product.id}`}
-                                    className="hp-products__card-button">
-                                    Explore Series
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none">
-                                        <path
-                                            d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
