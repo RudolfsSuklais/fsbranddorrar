@@ -21,7 +21,7 @@ const Footer = () => {
                     </div>
                     <div className="hp-footer-company-info">
                         <p>Finestra Solution LTD</p>
-                        <p>Department of Sweden</p>
+                        <p>Sveriges departement</p>
                         <p>GUSTAV III:S BOULEVARD 34</p>
                         <p>169 73 Solna</p>
                     </div>
